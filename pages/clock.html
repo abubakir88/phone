@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../sass/pages/clock.css" />
+    <title>Phone || Abubakir</title>
+  </head>
+  <body>
+    <div class="phone">
+      <div class="camera">
+        <div class="in-camera"></div>
+      </div>
+      <a href="../index.html" class="close">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          style="fill: #fff"
+        >
+          <path
+            d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"
+          ></path>
+        </svg>
+        close
+      </a>
+      <span id="datetime"></span>
+
+      <div class="clock-functions">aa</div>
+    </div>
+
+    <script>
+      function updateDateTime() {
+        const now = new Date();
+
+        const currentDateTime = now.toLocaleString();
+
+        document.querySelector("#datetime").textContent = currentDateTime;
+      }
+
+      setInterval(updateDateTime, 1000);
+    </script>
+    <script src="../js/main.js"></script>
+  </body>
+</html>
