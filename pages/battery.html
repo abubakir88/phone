@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../sass/pages/battary.css" />
+    <title>Battery</title>
+  </head>
+  <body>
+    <div class="phone">
+      <div class="camera">
+        <div class="in-camera"></div>
+      </div>
+
+      <a href="../index.html" class="close">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          style="fill: #fff"
+        >
+          <path
+            d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"
+          ></path>
+        </svg>
+        close
+      </a>
+
+      <div id="charge"></div>
+      <div id="charge-level"></div>
+      <div id="charging-time"></div>
+    </div>
+    <script>
+      const chargeLevel = document.getElementById("charge-level");
+      const charge = document.getElementById("charge");
+      const chargingTimeRef = document.getElementById("charging-time");
+
+      window.onload = () => {
+        //For browsers that don't support the battery status API
+        if (!navigator.getBattery) {
+          alert("Battery Status Api Is Not Supported In Your Browser");
+          return false;
+        }
+      };
+
+      navigator.getBattery().then((battery) => {
+        function updateAllBatteryInfo() {
+          updateChargingInfo();
+          updateLevelInfo();
+        }
+        updateAllBatteryInfo();
+
+        //When the charging status changes
+        battery.addEventListener("chargingchange", () => {
+          updateAllBatteryInfo();
+        });
+
+        //When the Battery Levvel Changes
+        battery.addEventListener("levelchange", () => {
+          updateAllBatteryInfo();
+        });
+
+        function updateChargingInfo() {
+          if (battery.charging) {
+            charge.classList.add("active");
+            chargingTimeRef.innerText = "";
+          } else {
+            charge.classList.remove("active");
+
+            //Display time left to discharge only when it is a integer value i.e not infinity
+            if (parseInt(battery.dischargingTime)) {
+              let hr = parseInt(battery.dischargingTime / 3600);
+              let min = parseInt(battery.dischargingTime / 60 - hr * 60);
+              chargingTimeRef.innerText = `${hr}hr ${min}mins remaining`;
+            }
+          }
+        }
+
+        //Updating battery level
+        function updateLevelInfo() {
+          let batteryLevel = `${parseInt(battery.level * 100)}%`;
+          charge.style.width = batteryLevel;
+          chargeLevel.textContent = batteryLevel;
+        }
+      });
+    </script>
+  </body>
+</html>
