@@ -1,17 +1,17 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../sass/pages/clock.css" />
-    <title>Phone || Abubakir</title>
+    <link rel="stylesheet" href="../sass/pages/alarm.css" />
+    <title>Alarm</title>
   </head>
   <body>
     <div class="phone">
       <div class="camera">
         <div class="in-camera"></div>
       </div>
-      <a href="../index.html" class="close">
+      <a href="./clock.html" class="close">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -25,14 +25,11 @@
         </svg>
         close
       </a>
-      <span id="datetime"></span>
 
-      <div class="alarm">
-        <!-- <p>Alarm <span id="currentTime"></span></p> -->
-        <input type="time" id="alarmTime" />
-        <button onclick="setAlarm();">Set Alarm</button>
-        <button onclick="alarmSound.pause();">Stop Alarm</button>
-      </div>
+      <p>Alarm <span id="currentTime"></span></p>
+      <input type="time" id="alarmTime" />
+      <button onclick="setAlarm();">Set</button>
+      <button onclick="alarmSound.pause();">Stop</button>
 
       <script type="text/javascript">
         function currentTime() {
@@ -67,17 +64,6 @@
       </script>
     </div>
 
-    <script>
-      function updateDateTime() {
-        const now = new Date();
-
-        const currentDateTime = now.toLocaleString();
-
-        document.querySelector("#datetime").textContent = currentDateTime;
-      }
-
-      setInterval(updateDateTime, 1000);
-    </script>
     <script src="../js/main.js"></script>
   </body>
-</html>
+</html> -->

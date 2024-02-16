@@ -47,6 +47,35 @@ a {
   font-size: 40px;
   font-family: sans-serif;
 }
-.phone .clock-functions {
-  background-color: #aaa;
+.phone .alarm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  padding-top: 30%;
+  font-size: 40px;
+  font-family: sans-serif;
+}
+.phone .alarm input {
+  width: 150px;
+  font-size: 20px;
+}
+.phone .alarm :nth-child(2) {
+  background-color: green;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.phone .alarm :last-child {
+  background-color: red;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
 }/*# sourceMappingURL=clock.css.map */
